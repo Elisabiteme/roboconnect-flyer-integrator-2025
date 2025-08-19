@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROBOCONNECT - Automasjon Flyer</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1e40af 0%, #0ea5e9 50%, #06b6d4 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .flyer {
+            width: 148mm;
+            height: 210mm;
+            background: white;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1e40af 0%, #0ea5e9 100%);
+            background-color: #1e40af;
+            color: #fff;
+            min-height: 140px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            overflow: visible;
+            z-index: 1;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .logo {
+            width: 280px;
+            height: auto;
+            margin-bottom: 18px;
+            filter: drop-shadow(0 2px 8px rgba(30,64,175,0.18)) drop-shadow(0 1px 2px rgba(0,0,0,0.12));
+        }
+        
+        .badge {
+            background: #fbbf24;
+            color: #92400e;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 15px;
+            position: relative;
+            left: 16px;
+        }
+        
+        .main-title {
+            color: #fff;
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 6px;
+            line-height: 1.1;
+            text-shadow: 0 2px 8px rgba(30,64,175,0.18), 0 1px 2px rgba(0,0,0,0.12);
+        }
+        
+        .subtitle {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            line-height: 1.1;
+            text-shadow: 0 2px 8px rgba(30,64,175,0.18), 0 1px 2px rgba(0,0,0,0.12);
+        }
+        
+        .description {
+            color: #fff;
+            font-size: 12px;
+            line-height: 1.2;
+            opacity: 1;
+            font-weight: 500;
+            text-shadow: 0 2px 8px rgba(30,64,175,0.18), 0 1px 2px rgba(0,0,0,0.12);
+        }
+        
+        .content {
+            flex: 1;
+            padding: 65px 20px 25px 20px;
+            background: #f8fafc;
+            position: relative;
+            margin-top: 12px;
+        }
+
+        .content::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: -160px;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bilde_side1.jpg-xO2VKxJKqBmiJMZZYjn0uaLHNG8UJd.jpeg');
+            background-size: cover;
+            background-position: left -40px;
+            opacity: 0.28;
+            z-index: 0;
+        }
+        
+        .section {
+            margin-bottom: 12px;
+        }
+        
+        .section-title {
+            color: #1e293b;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            font-size: 11px;
+            color: #475569;
+            padding: 8px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .benefit-icon {
+            width: 8px;
+            height: 8px;
+            background: #10b981;
+            border-radius: 50%;
+            margin-right: 8px;
+            flex-shrink: 0;
+        }
+        
+        .features-list {
+            list-style: none;
+        }
+        
+        .features-list li {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            font-size: 11px;
+            color: #475569;
+            line-height: 1.4;
+        }
+        
+        .check-icon {
+            width: 12px;
+            height: 12px;
+            background: #10b981;
+            border-radius: 50%;
+            margin-right: 10px;
+            margin-top: 2px;
+            flex-shrink: 0;
+            position: relative;
+        }
+        
+        .check-icon::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 8px;
+            font-weight: bold;
+        }
+        
+        .steps-section {
+            background: #fff !important;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+            margin-top: 32px;
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+        }
+        
+        .step {
+            text-align: center;
+        }
+        
+        .step-number {
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #1e40af, #0ea5e9);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            margin: 0 auto 8px;
+        }
+        
+        .step-text {
+            font-size: 9px;
+            color: #475569;
+            line-height: 1.3;
+            font-weight: 500;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, #1e40af 0%, #0ea5e9 100%);
+            padding: 15px 20px;
+            color: white;
+            text-align: center;
+        }
+        
+        .footer-note {
+            font-size: 10px;
+            margin-bottom: 8px;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 10px;
+        }
+        
+        .website {
+            font-weight: 600;
+        }
+        
+        .logo-symbol {
+            width: 20px;
+            height: 20px;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .flyer {
+                box-shadow: none;
+                width: 148mm;
+                height: 210mm;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flyer">
+        <div class="header">
+            <div class="header-content">
+                <div style="display:flex; flex-direction:row; align-items:center; justify-content:center; margin-bottom:8px;">
+                    <img src="/pictures/logo.svg" alt="ROBOCONNECT Logo" class="logo">
+                    <div class="badge" style="margin-left:24px;">Ny tjeneste</div>
+                </div>
+                <h1 class="main-title" style="margin-bottom:4px;">Er du en aktør innen automasjon?</h1>
+                <h2 class="subtitle" style="margin-bottom:4px;">Bli synlig – bli matchet</h2>
+                <p class="description" style="margin-bottom:0;">Registrer din bedrift NÅ for lansering og få 12 mnd gratis prøveperiode</p>
+            </div>
+        </div>
+        
+        <div class="content">
+            <!-- Bakgrunnsbilde lagt til i .content -->
+            <div class="section" style="position:relative; z-index:1;">
+                <h3 class="section-title">Gratis og uforpliktende:</h3>
+                <ul class="features-list">
+                    <li>
+                        <div class="check-icon"></div>
+                        <span>Registrer profil</span>
+                    </li>
+                    <li>
+                        <div class="check-icon"></div>
+                        <span>Få synlighet</span>
+                    </li>
+                    <li>
+                        <div class="check-icon"></div>
+                        <span>Bli matchet med kunder</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h3 class="section-title">I tillegg får du:</h3>
+                <ul class="features-list">
+                    <li>
+                        <div class="check-icon"></div>
+                        <span>12 måneder gratis prøveperiode</span>
+                    </li>
+                    <li>
+                        <div class="check-icon"></div>
+                        <span>Tidlig tilgang til leads og prosjekter</span>
+                    </li>
+                    <li>
+                        <div class="check-icon"></div>
+                        <span>Smart matching med relevante kunder</span>
+                    </li>
+                    <li>
+                        <div class="check-icon"></div>
+                        <span>Kundeforespørsler rett i innboksen</span>
+                    </li>
+                    <li>
+                        <div class="check-icon"></div>
+                        <span>Modenhetsanalyse og tydelig behovsbeskrivelse fra kunden</span>
+                    </li>
+                    <li>
+                        <div class="check-icon"></div>
+                        <span>Mulighet til å teste og påvirke plattformen</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="steps-section">
+                <h3 class="section-title" style="text-align:center;">Slik gjør du:</h3>
+                <div class="steps-grid">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-text">Gå til roboconnect.no/registrer</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-text">Opprett konto</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-text">Fyll ut bedriftsprofil</div>
+                    </div>
+                </div>
+                <div class="section-note" style="text-align:center; font-size:10px; color:#475569; margin-top:8px; line-height:1.3;">💡 Husk: Full profil kreves for kvalifisert matching. ⭐ Anbefalte å gjøre på PC</div>
+            </div>
+        </div>
+
+
+        <div class="footer">
+             <div class="contact-info">
+                <div>
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/logo_bare_symbol-m7AycFYX5PbHcWKV9Rhm69pAdQyZ1c.svg" alt="Logo Symbol" class="logo-symbol">
+                </div>
+                <div class="website">
+                    roboconnect.no | hei@roboconnect.no
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
