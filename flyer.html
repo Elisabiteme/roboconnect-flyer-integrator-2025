@@ -6,6 +6,7 @@
     <title>ROBOCONNECT - Automasjon Flyer</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
         
         * {
             margin: 0;
@@ -27,8 +28,8 @@
             width: 148mm;
             height: 210mm;
             background: white;
-            position: relative;
-            overflow: hidden;
+                background-position: center center;
+                opacity: 0.90;
             box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             display: flex;
             flex-direction: column;
@@ -47,7 +48,17 @@
             justify-content: flex-start;
             position: relative;
             overflow: visible;
-            z-index: 1;
+            z-index: 10;
+            color: #fff;
+            min-height: 140px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            position: relative;
+            overflow: visible;
+            z-index: 10;
         }
         
         .header-content {
@@ -60,9 +71,9 @@
         }
         
         .logo {
-            width: 280px;
+            width: 260px;
             height: auto;
-            margin-bottom: 18px;
+            margin-bottom: 8px;
             filter: drop-shadow(0 2px 8px rgba(30,64,175,0.18)) drop-shadow(0 1px 2px rgba(0,0,0,0.12));
         }
         
@@ -80,11 +91,18 @@
         }
         
         .main-title {
-            color: #fff;
-            font-size: 20px;
-            font-weight: 800;
-            margin-bottom: 6px;
-            line-height: 1.1;
+            background: linear-gradient(90deg, #009245 0%, #5ECFFF 60%, #005EFF 100%);
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 32px;
+            font-family: 'Bebas Neue', 'Inter', Arial, sans-serif;
+            font-weight: 900;
+            margin-bottom: 2px;
+            margin-top: 0;
+            letter-spacing: 3px;
+            line-height: 1.08;
             text-shadow: 0 2px 8px rgba(30,64,175,0.18), 0 1px 2px rgba(0,0,0,0.12);
         }
         
@@ -105,26 +123,56 @@
             font-weight: 500;
             text-shadow: 0 2px 8px rgba(30,64,175,0.18), 0 1px 2px rgba(0,0,0,0.12);
         }
+
+        .highlight-box {
+            background: none;
+            border: none;
+            padding: 4px 0;
+            border-radius: 0;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 8px;
+            box-shadow: none;
+        }
+
+        .highlight-box {
+            background: #F1F5FB;
+            border: 2px solid #5ECFFF;
+            padding: 8px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 15px;
+            font-weight: 700;
+                padding: 2px 0;
+                font-size: 13px;
+                margin-bottom: 4px;
+        }
         
         .content {
             padding: 12px 20px 12px 20px;
             background: #f8fafc;
             position: relative;
+            z-index: 1;
             margin-top: 0;
+            flex: 1 1 auto;
         }
 
         .content::before {
             content: '';
             position: absolute;
-            top: -40px;
-            left: -160px;
+            top: 0;
+            left: 0;
             right: 0;
             bottom: 0;
+            width: 100%;
+            height: 100%;
             background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/bilde_side1.jpg-xO2VKxJKqBmiJMZZYjn0uaLHNG8UJd.jpeg');
             background-size: cover;
-            background-position: -90px 20px;
-            opacity: 0.28;
-            z-index: 0;
+            background-position: center -40px;
+            opacity: 0.25!important;
+            z-index: -1;
         }
         
         .section {
@@ -288,7 +336,15 @@
             .flyer {
                 box-shadow: none;
                 width: 148mm;
+                width: 148mm;
                 height: 210mm;
+                background: white;
+                position: relative;
+                overflow: hidden;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
             }
         }
     </style>
@@ -307,7 +363,7 @@
         </div>
         
         <div class="content">
-            <p class="description" style="text-align:center; margin-bottom:18px; color:#1e293b; font-size:18px; font-weight:700; text-shadow:0 2px 8px rgba(255,255,255,0.18);">Registrer din bedrift NÅ for lansering og få 12 mnd gratis prøveperiode</p>
+            <div class="highlight-box">Registrer din bedrift NÅ før lansering og få 12 mnd gratis prøveperiode</div>
             <div class="section" style="position:relative; z-index:1;">
                 <h3 class="section-title">Gratis og uforpliktende:</h3>
                 <ul class="features-list">
